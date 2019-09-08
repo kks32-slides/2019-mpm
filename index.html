@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Large deformation modeling in geomechanics</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/burntorange.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!-- MathJax -->
+    <!--offline access-->
+    <!--<script type="text/javascript" src="./mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <!-- Script for Video play back on Slide for multiple videos-->
+    <script src = "js/video.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Section -->
+        <section>
+          <section>
+            <h2>A scalable Material Point Method code for large-scale geomechanics simulations</h2>
+            <p>
+              <br/>Krishna Kumar, <a href="mailto:krishnak@utexas.edu">krishnak@utexas.edu</a>
+              <br/>University of Texas at Austin
+              <br/>
+              <br/>Kenichi Soga, Shyamini Kularathna, Jeffrey Salmond, Christopher Wilkes, Ezra Tjung, Tianchi Zhao, and Wentao Xu.
+            </p>
+            <br/>
+            <div style="float: left; width: 100%;">
+              <span style="float: left; width: 33%; text-align: left;">
+                <img style="border:0;" src="images/themes/ut.png" width="100%">
+              </span>
+              <span style="float: left; width: 33%; text-align: center;">
+                <img style="border:0;" src="images/themes/cb-geo-text.png" width="60%">
+              </span>
+              <span style="float: right; width: 33%; text-align: right;">
+                <img style="border:0;" src="images/themes/berkeley.png" width="78%">
+              </span>
+            </div>
+            <div style="clear: both; width: 100%">
+              <br/>
+              <h4>MPM Workshop, Virginia Tech, USA<br/>10th September 2019</h4>
+            </div>
+          </section>
+        </section>
+        <section>
+          <!-- Modeling soil -->
+          <section>
+            <h2>Scales in modeling soil</h2>
+            <figure>
+              <img style = "border:0; box-shadow: 0 0 0px;" src="images/soil-scale.png" width="100%">
+            </figure>
+          </section>
+
+          <!-- Numerical methods -->
+          <section>
+            <h3>CB-Geo Computational Geomechanics</h3>
+            <ul>
+              <li> Material Point Method </li>
+              <li> Lattice-Boltzmann + Discrete Element Method </li>
+              <li> Finite Element Method - Thermo-Hydro Mechanical Coupling</li>
+              <li> Lattice Element Method </li>
+            </ul>
+            <figure>
+              <img style = "border:0;" src="images/themes/cb-geo.png" width ="100%">
+              <figcaption><a href="http://www.cb-geo.com">View the CB-Geo website for
+                  more information and software tools</a>
+              </figcaption>
+            </figure>
+          </section>
+
+          <!-- Material Point Method -->
+          <section>
+            <h2>Material Point Method</h2>
+            <div style="float: left; width: 30%;">
+              <figure>
+                <img style = "border:0;" src="images/mpm_equation.png" width="100%">
+              </figure>
+            </div>
+            <div style="float: left; width: 70%;">
+              <figure>
+                <img style = "border:0;" src="images/mpm_algorithm.png" width="100%">
+              </figure>
+            </div>
+          </section>
+
+          <!-- MPM Kaikoura landslide -->
+          <section>
+            <h2>MPM simulation of Kaikoura landslide</h2>
+            <figure>
+              <img style = "border:0;" src="images/kaikoura.png" width="100%">
+            </figure>
+          </section>
+
+          <!-- Disney MPM -->
+          <section>
+            <h2>Disney's Frozen: Snow simulation</h2>
+            <video  width="80%"  controls loop muted>
+              <source src="media/snow-roll.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+            <br/>Credits: Disney
+          </section>
+          <!-- Rendering-->
+          <section>
+            <h2>Photo-realistic rendering</h2>
+            <ul>
+              <li>HDF5 + VTK</li>
+              <li>Disney Partio: Houdini / Maya / Pixar's RenderMan</li>
+            </ul>
+            <figure>
+              <img style = "border:0;" src="images/mpm-rendering.png" width="80%">
+              <figcaption>
+                Photo-realistic rendering of compression of choco balls with Houdini
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+        <!-- Summary -->
+        <section>
+          <!-- Thank you! -->
+          <section data-background="images/themes/ut-background.jpg" data-background-size="80%">
+            <br/>
+            <h1><font color="yellow">Thank you!</font></h1>
+            <br/><br/>
+            <h2>
+              <font color="white">
+                Krishna Kumar
+              </font>
+            </h2>
+            <h3>
+              <font color="white">
+                krishnak@utexas.edu
+              </font>
+            </h3>
+          </section>
+        </section>
+        <!-- Special thanks to Chitra atthai! -->
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+          history: true,
+          slideNumber: 'c/t',
+          // More info https://github.com/hakimel/reveal.js#dependencies
+          dependencies: [{
+              src: 'plugin/markdown/marked.js'
+          }, {
+              src: 'plugin/markdown/markdown.js'
+          }, {
+              src: 'plugin/notes/notes.js',
+              async: true
+          }, {
+              src: 'plugin/highlight/highlight.js',
+              async: true,
+              callback: function() {
+                  hljs.initHighlightingOnLoad();
+              }
+          }]
+      });
+    </script>
+  </body>
+</html>
