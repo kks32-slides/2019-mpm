@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Large deformation modeling in geomechanics</title>
+    <title>CB-Geo MPM</title>
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/burntorange.css">
     <!-- Theme used for syntax highlighting of code -->
@@ -82,22 +82,7 @@
               </figcaption>
             </figure>
           </section>
-
-          <!-- Material Point Method -->
-          <section>
-            <h2>Material Point Method</h2>
-            <div style="float: left; width: 30%;">
-              <figure>
-                <img style = "border:0;" src="images/mpm_equation.png" width="100%">
-              </figure>
-            </div>
-            <div style="float: left; width: 70%;">
-              <figure>
-                <img style = "border:0;" src="images/mpm_algorithm.png" width="100%">
-              </figure>
-            </div>
-          </section>
-
+          
           <!-- MPM Kaikoura landslide -->
           <section>
             <h2>MPM simulation of Kaikoura landslide</h2>
@@ -106,6 +91,90 @@
             </figure>
           </section>
 
+          <!-- Code development -->
+          <section>
+            <h2>HPC MPM code</h2>
+            <div style="float: left; width: 40%;">
+              <p>
+                <ul>
+                  <li>Generic Templatised C++14</li>
+                  <li>2D/3D MPM Code</li>
+	          <li>Generalise Interpolation Material Point</li>
+                  <li>Distributed MPI</li>
+                  <li>Intel TBB  parallelisation</li>
+                  <li>Isoparametric elements</li>
+                  <li>HDF5 data stores</li>
+                  <li>Jupyter Notebooks integration</li>
+                  <li>Material models:</li>
+	          <ul>
+                    <li>Linear elastic</li>
+                    <li>Mohr coulomb</li>
+                    <li>Bingham fluid</li>
+                    <li>Newtonian</li>
+                  </ul>
+                </ul>
+              </p>
+            </div>
+            <div style="float: right; width: 60%;">
+              <img style = "border:0;" src="images/mpm-code-overview.png" width="80%">
+            </div>
+          </section>
+
+          <!-- Factory Pattern -->
+          <section>
+            <h2>Factory implementation</h2>
+            <pre>
+              <code class="cpp">
+//! A helper class to register a factory function
+//! \tparam Targs variadic template arguments
+template &lt;typename Tbaseclass, typename Tderivedclass, typename... Targs&gt;
+class Register {
+  public:
+    //! Register with a given key
+    explicit Register(const std::string& key) {
+       // register the class factory function
+       Factory&lt;Tbaseclass, Targs...&gt;::instance()
+            ->template register_factory&lt;Tderivedclass&gt;(key);
+    }
+};
+
+// Quadrilateral 4-noded element
+static Register&lt;mpm::Element&lt;2&gt;, mpm::QuadrilateralElement&lt;2, 4&gt;&gt;
+    quad4("ED2Q4");
+// Quadrilateral 4-node-base GIMP element
+static Register&lt;mpm::Element&lt;2&gt;, mpm::QuadrilateralGIMPElement&lt;2, 16&gt;&gt;
+    quad_gimp16("ED2Q16G");
+
+              </code>
+            </pre>
+          </section>
+
+          
+          <!-- Factory Pattern -->
+          <section>
+            <h2>Iterate over particles / nodes/ cells functions</h2>
+            <pre>
+              <code class="cpp">
+// Apply a given functor to all particles making use of tbb::parallel_for_each
+// \tparam Toper          Type of the particle operation
+// \param[in|out] oper    Specific operation applied to all particles
+template &lt;unsigned Tdim&gt;
+template &lt;typename Toper&gt;
+void mpm::Mesh&lt;Tdim&gt;::iterate_over_particles(Toper oper) {
+  tbb::parallel_for_each(particles_.cbegin(), particles_.cend(), oper);
+}
+
+// Iterate over particles to compute mass
+// Compute mass
+mesh_-&gt;iterate_over_particles(std::bind(
+      &mpm::ParticleBase&lt;Tdim&gt;::compute_mass, std::placeholders::_1, phase));
+              </code>
+            </pre>
+          </section>
+        </section>
+
+        <!-- Visualization -->
+        <section>
           <!-- Disney MPM -->
           <section>
             <h2>Disney's Frozen: Snow simulation</h2>
