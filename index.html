@@ -139,6 +139,19 @@
             </div>
           </section>
 
+          
+          <!-- Code overview -->
+          <section>
+            <h3>Code overview</h3>
+            <img style = "border:0;" src="images/code-layout.png" width="100%">
+          </section>
+
+          <!-- Factory design pattern -->
+          <section>
+            <h3>Factory design pattern</h3>
+            <img style = "border:0;" src="images/code-factory.png" width="100%">
+          </section>
+
           <!-- Factory Pattern -->
           <section>
             <h2>Factory implementation</h2>
@@ -168,7 +181,15 @@ static Register&lt;mpm::Element&lt;2&gt;, mpm::QuadrilateralGIMPElement&lt;2, 16
             </pre>
           </section>
 
-          
+          <!--Vectorization-->
+          <section>
+            <h3>Vectorization</h3>
+            <img src="images/nonvectorized.png" width="55%">
+            <p>Non-vectorized</p>
+            <img src="images/vectorized.png" width="55%">
+            <p>Vectorized</p>
+          </section>
+
           <!-- Factory Pattern -->
           <section>
             <h2>Iterate over particles / nodes/ cells functions</h2>
@@ -191,74 +212,91 @@ mesh_-&gt;iterate_over_particles(std::bind(
             </pre>
           </section>
 
-          <!-- Improving the performance -->
-          <section>
-            <h3>Parallelism v Concurrency</h3>
-            <div style="float: left; width: 44%">
-              <img src="images/parallelism.png" width="100%">
-            </div>
-            <div style="float: right; width: 52%">
-              <img src="images/concurrency.png" width="100%">
-            </div>
-          </section>
-
+          <!-- Shared vs Distributed parallel architectures-->
           <section>
             <h3>Shared v Distributed memory architectures</h3>
-            <img src="images/shared-memory-distributed-memory-computing.png" width="100%">
+            <img style = "border:0;" src="images/shared-memory-distributed-memory-computing.png" width="100%">
           </section>
 
+          <!-- Caching -->
           <section>
             <h3>Cache</h3>
-            <img src="images/cpumemory.png" width="60%">
+            <img style = "border:0;" src="images/cpumemory.png" width="60%">
           </section>
 
-
+          <!-- C++ Containers -->
           <section>
             <h3>C++ STL containers: Vector</h3>
-            <img src="images/cpp-vector.png" width="80%">
-          </section>
-
-          <section>
-            <h3>Vectorization</h3>
-            <img src="images/nonvectorized.png" width="55%">
-            <p>Non-vectorized</p>
-            <img src="images/vectorized.png" width="55%">
-            <p>Vectorized</p>
+            <img style = "border:0;" src="images/cpp-vector.png" width="80%">
           </section>
 
           <section>
             <h3>C++ STL containers: Map</h3>
-            <img src="images/cpp-map.png" width="80%">
+            <img style = "border:0;" src="images/cpp-map.png" width="80%">
           </section>
 
-          <section>
-            <h3>Map hashing</h3>
-            <img src="images/hashing.png" width="100%">
-          </section>
-
-          <section>
-            <h3>Hash collisions</h3>
-            <img src="images/hash-collisions.png" width="100%">
-          </section>
-
+          <!-- Robinhood hashing -->
           <section>
             <h3>Robinhood hashing</h3>
-            <img src="images/robinhood-hashing.png" width="100%">
+            <img style = "border:0;" src="images/robinhood-hashing.png" width="100%">
           </section>
 
+          <!-- Robinhood hashing -->
           <section>
             <h3>Robinhood hashing performance</h3>
-            <img src="images/robinhood-performance.png" width="100%">
+            <img style = "border:0;" src="images/robinhood-performance.png" width="100%">
             Credits: https://github.com/Tessil/robin-map
           </section>
         </section>
 
+        <!--Distributed parallel-->
         <section>
-          <h3>Unit testing</h3>
-          CI with CircleCI (Docker Container)
-          Automated testing on G++/Clang
-          Unit tests: 11794 assertions in 50 test cases
-          Code Coverage - how much >91% of code has been unit tested
+          <!-- MPI parallelism -->
+          <section>
+            <h3>Distributed parallel: Naive implementation</h3>
+            <img style = "border:0;" src="images/mpi-mpm-original.png" width="100%">
+          </section>
+
+          <!-- Ghost particles vs Vertex parallel -->
+          <section>
+            <h3>Ghost particle vs Vertex parallel</h3>
+            <img style = "border:0;" src="images/vertex-ghost-particles.png" width="80%">
+            <br/>Ruggirello & Schumacher (2014)
+          </section>
+
+          <!-- ParMETIS  -->
+          <section>
+            <h3>Graph partitioning: ParMETIS</h3>
+            <img style = "border:0;" src="images/parmetis.png" width="100%">
+          </section>
+          
+          <!-- ParMETIS  -->
+          <section>
+            <h3>Isoparametric elements</h3>
+            <img style = "border:0;" src="images/isoparametric.png" width="40%">
+            <img style = "border:0;" src="images/complex-bc.png" width="80%">
+            <br/>Ezra Tjung (2019) and Christopher Wilkes (2019)
+          </section>
+        </section>
+
+        <section>
+          <h3>Unit testing and code coverage</h3>
+          <div style="float: left; width: 70%;">
+            <ul>
+              <li>CI with CircleCI (Docker Container)</li>
+              <li>Automated testing on G++/Clang</li>
+              <li>Unit tests: 11794 assertions in 50 test cases</li>
+              <li>Code Coverage - how much >91% of code has been unit tested</li>
+            </ul>
+          </div>
+
+          <div style="float: right; width: 30%;">
+            <img style = "border:0;" src="images/code-coverage.png" width="80%">
+          </div>
+          
+          <div style="clear: both; width: 100%">
+            <img style = "border:0;" src="images/unit-test.png" width="100%">
+          </div>
         </section>
 
         <!-- Visualization -->
