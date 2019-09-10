@@ -32,12 +32,13 @@
         <!-- Section -->
         <section>
           <section>
-            <h2>A scalable Material Point Method code for large-scale geomechanics simulations</h2>
+            <h2>CB-Geo MPM</h2>
+            <h3>An MPM code for large-scale geomechanics simulations</h3>
             <p>
               <br/>Krishna Kumar, <a href="mailto:krishnak@utexas.edu">krishnak@utexas.edu</a>
               <br/>University of Texas at Austin
               <br/>
-              <br/>Kenichi Soga, Shyamini Kularathna, Jeffrey Salmond, Christopher Wilkes, Ezra Tjung, Tianchi Zhao, and Wentao Xu.
+              <br/>Kenichi Soga, Shyamini Kularathna, Jeffrey Salmond, Christopher Wilkes, Ezra Tjung, Tianchi Zhao, Thiago Araujo and Wentao Xu.
             </p>
             <br/>
             <div style="float: left; width: 100%;">
@@ -53,7 +54,7 @@
             </div>
             <div style="clear: both; width: 100%">
               <br/>
-              <h4>MPM Workshop, Virginia Tech, USA<br/>10th September 2019</h4>
+              <h4>12th Annual MPM Workshop, Virginia Tech, USA<br/>10th September 2019</h4>
             </div>
           </section>
         </section>
@@ -82,7 +83,9 @@
               </figcaption>
             </figure>
           </section>
-          
+        </section>
+
+        <section>
           <!-- MPM Kaikoura landslide -->
           <section>
             <h2>MPM simulation of Kaikoura landslide</h2>
@@ -170,6 +173,67 @@ mesh_-&gt;iterate_over_particles(std::bind(
       &mpm::ParticleBase&lt;Tdim&gt;::compute_mass, std::placeholders::_1, phase));
               </code>
             </pre>
+          </section>
+
+          <!-- Improving the performance -->
+          <section>
+            <h3>Parallelism v Concurrency</h3>
+            <div style="float: left; width: 44%">
+              <img src="images/parallelism.png" width="100%">
+            </div>
+            <div style="float: right; width: 52%">
+              <img src="images/concurrency.png" width="100%">
+            </div>
+          </section>
+
+          <section>
+            <h3>Shared v Distributed memory architectures</h3>
+            <img src="images/shared-memory-distributed-memory-computing.png" width="100%">
+          </section>
+
+          <section>
+            <h3>Cache</h3>
+            <img src="images/cpumemory.png" width="60%">
+          </section>
+
+
+          <section>
+            <h3>C++ STL containers: Vector</h3>
+            <img src="images/cpp-vector.png" width="80%">
+          </section>
+
+          <section>
+            <h3>Vectorization</h3>
+            <img src="images/nonvectorized.png" width="55%">
+            <p>Non-vectorized</p>
+            <img src="images/vectorized.png" width="55%">
+            <p>Vectorized</p>
+          </section>
+
+          <section>
+            <h3>C++ STL containers: Map</h3>
+            <img src="images/cpp-map.png" width="80%">
+          </section>
+
+          <section>
+            <h3>Map hashing</h3>
+            <img src="images/hashing.png" width="100%">
+          </section>
+
+          <section>
+            <h3>Hash collisions</h3>
+            <img src="images/hash-collisions.png" width="100%">
+          </section>
+
+          <section>
+            <h3>Robinhood hashing</h3>
+            <img src="images/robinhood-hashing.png" width="100%">
+          </section>
+
+          <section>
+            <h3>Robinhood hashing performance</h3>
+            <img src="images/robinhood-performance.png" width="100%">
+            Credits: https://github.com/Tessil/robin-map
           </section>
         </section>
 
